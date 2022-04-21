@@ -8,8 +8,10 @@
         <a href="/ethnos/{{data.ethnos.id}}">{{data.ethnos}}</a>/
         <a href="/ethnos/{{data.ethnos.id}}/article/{{data.id}}">{{data.head}}</a>
     </div>
-    <h2>{{data.head}}</h2>
-    <div class="mainText">{{data.body|linebreaks}}</div>
-    <div class="articleDate">{{data.date|date:"j.m.y G:i"}}</div>
-    <a class="btn btn-primary" href="/ethnos/{{data.ethnos.id}}/article/{{data.id}}/edit" role="button">Редактировать</a>
+    <form method="POST">
+        {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Send" >
 {% endblock %}

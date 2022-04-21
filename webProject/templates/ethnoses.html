@@ -3,6 +3,10 @@
 
 {% block content %}
     <ul>
+        <div class="route">
+            <a href="/">Главная</a>/
+            <a href="/ethnos">Этносы</a>
+        </div>
         {% for str in eth %}
             <li>
                 <a href="ethnos/{{str.id}}">{{str.name}}</a>

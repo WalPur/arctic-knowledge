@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+    <div class="route">
+        <a href="/">Главная</a>/
+        <a href="/ethnos">Этносы</a>/
+        <a href="/ethnos/{{ethnos.id}}">{{ethnos.name}}</a>
+    </div>
     <ul>
         {% for str in data %}
             <li><a href="{{str.ethnos.id}}/article/{{str.id}}">{{str.head}}</a></li>

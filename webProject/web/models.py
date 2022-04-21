@@ -9,6 +9,7 @@ class Ethnos(models.Model):
     brief_text = models.TextField("")
     def __str__(self):
         return self.name
+
 class Article(models.Model):
     head = models.CharField(max_length=255)
     body = models.TextField("")

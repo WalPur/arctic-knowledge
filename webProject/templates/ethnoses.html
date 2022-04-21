@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block content %}
+    <ul>
+        {% for str in eth %}
+            <li>
+                <a href="ethnos/{{str.id}}">{{str.name}}</a>
+                <p>{{str.brief_text}}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

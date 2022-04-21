@@ -2,5 +2,6 @@
 {% load static %}
 
 {% block content %}
-    <h1>Hello world</h1>
+    <h2>{{data.head}}</h2>
+    <div class="mainText">{{data.body|safe}}</div>
 {% endblock %}

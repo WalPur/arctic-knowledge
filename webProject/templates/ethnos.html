@@ -1,0 +1,10 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block content %}
+    <ul>
+        {% for str in data %}
+            <li><a href="{{str.ethnos.id}}/article/{{str.id}}">{{str.head}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

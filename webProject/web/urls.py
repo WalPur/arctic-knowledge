@@ -6,5 +6,6 @@ urlpatterns = [
     path("ethnos", views.ethnoses),
     path("ethnos/<int:id>", views.ethnos),
     path("ethnos/<int:ethnosId>/article/<int:articleId>", views.article),
-    path("ethnos/<int:ethnosId>/article/<int:articleId>/edit", views.edit)
+    path("ethnos/<int:ethnosId>/article/<int:articleId>/edit", views.edit),
+    path('moderation', views.moderation)
 ]

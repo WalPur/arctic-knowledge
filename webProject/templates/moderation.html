@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block content %}
+    <table>
+        <tr>
+            <td>
+                Старая версия
+            </td>
+            <td>
+                Предложенная версия
+            </td>
+        </tr>
+        {% for preArticle, article in data %}
+            <tr>
+                <td>
+                    {{preArticle.head}}
+                </td>
+                <td>
+                    {{article.head}}
+                </td>
+            </tr>
+            <td>
+                {{preArticle.body}}
+            </td>
+            <td>
+                {{article.body}}
+            </td>
+        {% endfor %}
+    </table>
+{% endblock %}

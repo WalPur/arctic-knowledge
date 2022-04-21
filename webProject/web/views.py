@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Ethnos, Article
+from .models import Ethnos, Article, Contribution
 from .forms import articleEdit
 
 # Create your views here.
@@ -21,10 +21,18 @@ def article(request, ethnosId, articleId):
 def edit(request, ethnosId, articleId):
     data = Article.objects.get(id=articleId)
     if request.method == 'POST':
-        data.head = request.POST.get("head")
-        data.body = request.POST.get("body")
-        data.save()
+        head = request.POST.get("head")
+        body = request.POST.get("body")
+        cont = Contribution(head=head, body=body, article=data)
+        cont.save()
         return redirect('/ethnos/' + str(data.ethnos.id) + '/article/' + str(data.id))
     else:
         form = articleEdit(initial={'head': data.head, 'body': data.body})
         return render(request, "edit.html", {"form": form, "data": data})
+def moderation(request):
+    contributions = Contribution.objects.all()
+    preArticle = []
+    for comparison in contributions:
+        #first is pre version, second is contributed version
+        preArticle.append([comparison.article, comparison])
+    return render(request, "moderation.html", {"data": preArticle})

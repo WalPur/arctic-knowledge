@@ -11,5 +11,8 @@
     <h2>{{data.head}}</h2>
     <div class="mainText">{{data.body|linebreaks}}</div>
     <div class="articleDate">{{data.date|date:"j.m.y G:i"}}</div>
-    <a class="btn btn-primary" href="/ethnos/{{data.ethnos.id}}/article/{{data.id}}/edit" role="button">Редактировать</a>
+    <div class="editPanel">
+        <a class="btn btn-primary" href="/ethnos/{{data.ethnos.id}}/article/{{data.id}}/edit" role="button">Редактировать</a>
+        <a href="/log/{{data.id}}">История изменений</a>
+    </div>
 {% endblock %}

@@ -2,5 +2,10 @@
 {% load static %}
 
 {% block content %}
-    <h1>Hello world</h1>
+    {% for str in eth %}
+    <li>
+        <a href="ethnos/{{str.id}}">{{str.name}}</a>
+        <p>{{str.brief_text}}</p>
+    </li>
+    {% endfor %}
 {% endblock %}

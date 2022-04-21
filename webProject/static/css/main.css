@@ -1,5 +1,56 @@
+@import url(//db.onlinewebfonts.com/c/066ce24dae3730ed6c648b09efaea93a?family=Acumin+Variable+Concept);
+@font-face {
+    font-family: "Myriad Pro"; 
+    src: url("myriad-pro.otf"); 
+    font-style: normal; 
+    font-weight: normal; 
+    } 
 body {
     margin: 0;
     padding: 0;
-    color: red;
+}
+.top {
+    background-color: #2B2B2B;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.logo {
+    height: 50px;
+}
+.background {
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+}
+.siteName {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+h1 {
+    font-family: "Acumin Variable Concept";
+    font-size: 75pt;
+    color: white;
+}
+nav {
+    justify-content: space-around;
+    text-align: center;
+}
+.navElem {
+    border-radius: 15px 15px 0 0;
+    padding: 5px 0;
+    background: linear-gradient(90deg, #59C1D6, #865BA2);
+    font-family: "Myriad Pro";
+    font-size : 14pt;
+    color: white;
+}
+.active {
+    background: white;
+    color: black;
 }

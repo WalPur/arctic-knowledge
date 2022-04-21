@@ -7,6 +7,7 @@ from django.forms import CharField
 class Ethnos(models.Model):
     name = models.CharField(max_length=255)
     brief_text = models.TextField("")
+    image = models.ImageField(blank=True)
     def __str__(self):
         return self.name
 

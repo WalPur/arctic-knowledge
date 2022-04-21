@@ -1,11 +1,22 @@
 {% extends 'template.html' %}
 {% load static %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
 {% block content %}
+<div class="row justify-content-evenly">
     {% for str in eth %}
-    <li>
-        <a href="ethnos/{{str.id}}">{{str.name}}</a>
-        <p>{{str.brief_text}}</p>
-    </li>
+        <a href="ethnos/{{str.id}}" class="col-4 ethnosLink">
+            <div class="card">
+                <img src="media/{{str.image}}" class="card-img-top ethnosImage" alt="{{str.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{str.name}}</h5>
+                    <p class="card-text">{{str.brief_text}}</p>
+                </div>
+            </div>
+        </a>
     {% endfor %}
+</div>
 {% endblock %}

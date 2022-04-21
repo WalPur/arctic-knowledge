@@ -4,7 +4,8 @@ from .forms import articleEdit
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    data = Ethnos.objects.all()
+    return render(request, "index.html", {"eth": data, "main_page": True})
 def ethnoses(request):
     data = Ethnos.objects.all()
     return render(request, "ethnoses.html", {"eth": data})

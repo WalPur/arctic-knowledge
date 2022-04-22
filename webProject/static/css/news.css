@@ -1,0 +1,12 @@
+.newsArticle {
+    margin-top: 2rem;
+}
+.previewIMG, .textBlock {
+    max-height: 400px!important;
+}
+.previewIMG {
+    object-fit: contain;
+}
+.textBlock {
+    overflow-y: scroll;
+}

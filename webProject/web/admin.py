@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Article)
 admin.site.register(Ethnos)
 admin.site.register(Contribution)
+admin.site.register(NewsArticle)

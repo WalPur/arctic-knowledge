@@ -27,3 +27,10 @@ class Contribution(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, default=0)
     def __str__(self):
         return self.head
+class NewsArticle(models.Model):
+    head = models.CharField(max_length=255)
+    body = models.TextField("")
+    image = models.ImageField(blank=True)
+    date = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.head

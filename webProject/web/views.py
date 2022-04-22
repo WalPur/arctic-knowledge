@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Ethnos, Article, Contribution
+from .models import Ethnos, Article, Contribution, NewsArticle
 from .forms import articleEdit
 
 # Create your views here.
@@ -37,3 +37,6 @@ def moderation(request):
         #first is pre version, second is contributed version
         preArticle.append([comparison.article, comparison])
     return render(request, "moderation.html", {"data": preArticle})
+def news(request):
+    data = NewsArticle.objects.all()
+    return render(request, "news.html", {"data": data, "news_page": True})

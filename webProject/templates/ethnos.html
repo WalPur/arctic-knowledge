@@ -1,15 +1,17 @@
 {% extends 'template.html' %}
 {% load static %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/ethnos.css' %}">
+{% endblock %}
+
+{% block title %} {{ethnos}} {% endblock %}
+
 {% block content %}
-    <div class="route">
-        <a href="/">Главная</a>/
-        <a href="/ethnos">Этносы</a>/
-        <a href="/ethnos/{{ethnos.id}}">{{ethnos.name}}</a>
-    </div>
-    <ul>
+    <h2>Статьи по народности - {{ethnos}}:</h2>
+    <ul class="list-unstyled">
         {% for str in data %}
-            <li><a href="{{str.ethnos.id}}/article/{{str.id}}">{{str.head}}</a></li>
+            <li><a class="listElem" href="{{str.ethnos.id}}/article/{{str.id}}">{{str.head}}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

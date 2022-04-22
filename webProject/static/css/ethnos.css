@@ -12,7 +12,7 @@
 }
 .ethnosImage {
     height: 300px;
-    object-fit: contain;
+    object-fit: fill;
     width: auto;
 }
 .card-body {

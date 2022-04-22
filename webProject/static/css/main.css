@@ -5,6 +5,12 @@
     font-style: normal; 
     font-weight: normal; 
     } 
+@font-face {
+    font-family: "Acumin Variable Concept"; 
+    src: url("acumin-medium.woff2.ttf"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
 body {
     margin: 0;
     padding: 0;

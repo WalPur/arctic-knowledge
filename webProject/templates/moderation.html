@@ -3,6 +3,10 @@
 
 {% block title %} Страница модерации {% endblock %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/moderation.css' %}">
+{% endblock %}
+
 {% block content %}
     <table>
         <tr>
@@ -13,23 +17,37 @@
                 Предложенная версия
             </td>
         </tr>
-        {% for preArticle, article in data %}
-            <tr>
-                <td>
-                    {{preArticle.head}}
-                </td>
-                <td>
-                    {{article.head}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    {{preArticle.body}}
-                </td>
-                <td>
-                    {{article.body}}
-                </td>
-            </tr>
-        {% endfor %}
+        {% if request.user.is_staff %}
+            {% for preArticle, article in data %}
+                <tr>
+                    <td>
+                        {{preArticle.head}}
+                    </td>
+                    <td>
+                        {{article.head}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{preArticle.body}}
+                    </td>
+                    <td>
+                        {{article.body}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{preArticle.id}}">
+                            <input type="hidden" name="deleteId" value="{{article.id}}">
+                            <input type="hidden" name="head" value="{{article.head}}">
+                            <input type="hidden" name="body" value="{{article.body}}">
+                            <input type="submit" value="Одобрить">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
     </table>
 {% endblock %}

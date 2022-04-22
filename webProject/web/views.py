@@ -31,12 +31,23 @@ def edit(request, ethnosId, articleId):
         form = articleEdit(initial={'head': data.head, 'body': data.body})
         return render(request, "edit.html", {"form": form, "data": data})
 def moderation(request):
-    contributions = Contribution.objects.all()
-    preArticle = []
-    for comparison in contributions:
-        #first is pre version, second is contributed version
-        preArticle.append([comparison.article, comparison])
-    return render(request, "moderation.html", {"data": preArticle})
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        article = Article.objects.get(id=id)
+        article.body = request.POST.get("body")
+        article.head = request.POST.get("head")
+        Contribution.objects.get(id=request.POST.get("deleteId")).delete()
+        article.save()
+        return redirect('/moderation')
+    else:
+        contributions = Contribution.objects.all()
+        preArticle = []
+        for comparison in contributions:
+            #first is pre version, second is contributed version
+            preArticle.append([comparison.article, comparison])
+        return render(request, "moderation.html", {"data": preArticle})
 def news(request):
     data = NewsArticle.objects.all()
     return render(request, "news.html", {"data": data, "news_page": True})
+def contacts(request):
+    return render(request, "contacts.html", {"contacts_page": True})

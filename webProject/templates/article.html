@@ -4,7 +4,7 @@
 {% block title %} {{data.head}} {% endblock %}
 
 {% block content %}
-    <h2>{{data.head}}</h2>
+    <h2 articleHeader>{{data.head}}</h2>
     <div class="mainText">{{data.body|linebreaks}}</div>
     <div class="articleDate">{{data.date|date:"j.m.y G:i"}}</div>
     <div class="editPanel">

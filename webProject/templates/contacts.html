@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+{% endblock %}
+
+{% block title %} Контакты {% endblock %}
+
+{% block content %}
+    <div class="contacts">
+        <h2>
+            Сундупов Саян Солбонович - менеджер. Почта: Sundupov80@gmail.com
+        </h2>
+        <h2>
+            Семёнова Лидия Дмитриевна - дизайнер.
+        </h2>
+        <h2>
+            Игнатьев Михаил Александрович - разработчик.
+        </h2>
+    </div>
+{% endblock %}

@@ -1,10 +1,15 @@
 {% extends 'template.html' %}
 {% load static %}
 
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/article.css' %}">
+{% endblock %}
+
 {% block title %} {{data.head}} {% endblock %}
 
 {% block content %}
-    <h2 articleHeader>{{data.head}}</h2>
+    <h2 class="articleHeader">{{data.head}}</h2>
+    <img src="/media/{{data.image}}" class='articleImage' alt="{{data.head}}">
     <div class="mainText">{{data.body|linebreaks}}</div>
     <div class="articleDate">{{data.date|date:"j.m.y G:i"}}</div>
     <div class="editPanel">

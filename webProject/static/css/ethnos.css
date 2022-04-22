@@ -1,3 +1,21 @@
+.ethnosBlock {
+    margin: 5% 0;
+}
+.previewIMG, .textBlock {
+    max-height: 300px;
+}
+.previewIMG {
+    object-fit: contain;
+}
 .listElem {
     font-size: 14pt;
+}
+.ethnosImage {
+    height: 300px;
+    object-fit: contain;
+    width: auto;
+}
+.card-body {
+    max-height: 300px;
+    overflow-y: hidden;
 }

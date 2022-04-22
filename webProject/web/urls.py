@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path("ethnos/<int:ethnosId>/article/<int:articleId>/edit", views.edit),
     path('moderation', views.moderation),
     path('news', views.news),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

@@ -8,10 +8,32 @@
 {% block title %} {{ethnos}} {% endblock %}
 
 {% block content %}
+    <div class="ethnosBlock row">
+        <img src="/media/{{ethnos.image}}" class="previewIMG col-4">
+        <div class="textBlock col-8">
+            <h2 class="ethnosName">
+                {{ ethnos }}
+            </h2>
+            <div class="ethnosInfo">
+                {{ ethnos.brief_text }}
+            </div>
+        </div>
+    </div>
     <h2>Статьи по народности - {{ethnos}}:</h2>
     <ul class="list-unstyled">
-        {% for str in data %}
-            <li><a class="listElem" href="{{str.ethnos.id}}/article/{{str.id}}">{{str.head}}</a></li>
-        {% endfor %}
+        <div class="row justify-content-evenly">
+            {% for str in data %}
+                <a href="/ethnos/{{ethnos.id}}/article/{{str.id}}" class="col-4 ethnosLink">
+                    <div class="card">
+                        <img src="/media/{{str.image}}" class="card-img-top ethnosImage" alt="{{str.head}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{str.head}}</h5>
+                            <p class="card-text">{{str.body}}</p>
+                        </div>
+                        <button type="button" class="btn btn-primary">Читать дальше</button>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </ul>
 {% endblock %}
